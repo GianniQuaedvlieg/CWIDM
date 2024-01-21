@@ -1,0 +1,29 @@
+---
+title: "Practicum 2"
+author: "Gianni Quaedvlieg"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+url <- "CWIDM_practicum_2_dataset.csv" 
+D <- read_csv(url)
+D
+```
+
+**Correlatiematrix maken**
+
+*Hier gaan we een correlatiematrix maken om te zien hoe verschillende variabelen met elkaar samenhangen. We gebruiken hiervoor de package `psych` en de functie die erbij hoort `corr.test`. Daarna moeten we de dataset aangeven en indien we de p-waarden willen; `alpha = True`.*
+
+```{r}
+library(psych)
+corr.test(D, alpha = T)
+```
+
+**Regressie**
+
+```{r}
+regr1 <- lm(SuWB ~ Lichaamstevredenheid + Prestatietevredenheid, data = D)
+summary(regr1)
+```
