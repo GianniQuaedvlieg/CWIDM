@@ -27,3 +27,10 @@ corr.test(D, alpha = T)
 regr1 <- lm(SuWB ~ Lichaamstevredenheid + Prestatietevredenheid, data = D)
 summary(regr1)
 ```
+**Regressie mooier maken**
+
+```{r}
+library(texreg)
+Table <- screenreg(regr1)
+Table
+```
